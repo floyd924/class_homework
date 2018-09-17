@@ -1,12 +1,13 @@
 class ElephantPoloTeam
 
-  attr_accessor :name, :players, :coach
+  attr_accessor :name, :players, :coach, :points
 
-  def initialize(name, players, coach)
+  def initialize(name, players, coach, points=0)
 
     @name = name
     @players = players
     @coach = coach
+    @points = points
 
   end
 
@@ -24,5 +25,16 @@ class ElephantPoloTeam
     }
 return false
   end
+
+  def result(res)
+    if res == "w"
+      @points += 10
+    elsif res == "d"
+      @points += 5
+    else
+      0
+    end
+  end
+
 
 end
